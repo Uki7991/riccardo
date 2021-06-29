@@ -15,6 +15,8 @@ class CreateMasksTable extends Migration
     {
         Schema::create('masks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id')->nullable()->constrained('companies')->nullOnDelete();
+            $table->string('mask');
             $table->timestamps();
         });
     }

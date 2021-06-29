@@ -15,6 +15,14 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->string('title');
+            $table->string('phone');
+            $table->string('address');
+            $table->string('tax_id');
+            $table->integer('tokens_amount');
+            $table->string('example_pdf');
+            $table->foreignId('company_id')->nullable()->constrained('companies')->nullOnDelete();
             $table->timestamps();
         });
     }

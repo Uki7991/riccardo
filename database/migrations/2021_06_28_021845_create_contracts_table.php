@@ -15,6 +15,13 @@ class CreateContractsTable extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id')->nullable()->constrained('companies')->nullOnDelete();
+            $table->ipAddress('ip_address')->nullable();
+            $table->string('policy_number');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('tax_number');
+            $table->string('country', 3);
             $table->timestamps();
         });
     }
